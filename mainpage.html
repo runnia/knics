@@ -9,8 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;500;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header class="header">
-
+    <header class="header desktop-only-header">
         <div class="header_wrapper">
           <nav class="header_nav ">
             <ul class="header_list">
@@ -26,7 +25,30 @@
             </ul>
           </nav>
         </div>
+    </header>
 
+    <header class="mobile-only-header">
+      <div class="header_mobile">
+        <div class = "logo_mobile"> <a href="/"><img src="img/KNICS.png" alt="KNICS"></a></div>
+      <a class="menu__icon mobile"><span></span></a>
+       <ul class="menu mobile">
+         <li><a href="" class="menu__item">Каталог</a></li>
+         <li><a href="" class="menu__item">О бренде</a></li>
+         <li><a href="" class="menu__item">Lookbook</a></li>
+         <li><a href="" class="menu__item">Поиск</a></li>
+         <li><a href="" class="menu__item">Корзина</a></li>
+       </ul>
+       <script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
+       <script type="text/javascript">
+       jQuery(function($) {
+          $(document).ready(function() {
+          $('.menu__icon').click(function(){
+          $('body').toggleClass('menu_shown');
+          });
+          });
+        });
+       </script>
+       </div>
     </header>
     <main class="main">
       <div class="banner">
