@@ -55,7 +55,6 @@ ul {
 .header_nav{
   display: flex;
   width: 100%;
-  max-width: 1360px;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
@@ -106,6 +105,8 @@ ul {
 .mobile-only-header {
   display: none;
 }
+
+
 
 .header_mobile{
   height: 100px;
@@ -206,14 +207,7 @@ ul {
 }
 
 
-@media (max-width: 912px) {
-  .desktop-only-header {
-    display: none;
-  }
-  .mobile-only-header {
-    display: initial;
-  }
-}
+
 
 .new_collection{
   width: 100%;
@@ -375,7 +369,7 @@ p{
 }
 
 .catalog_wrapper{
-  max-width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
   display: flex;
   width: 100%;
@@ -386,7 +380,7 @@ p{
 }
 
 .sort_left{
-  width: 14.58vw;
+  width: 15.44%;
   /* background-color: #000000; */
   margin-top: 20px;
 }
@@ -403,8 +397,7 @@ p{
 }
 
 .prod_right{
-  width: 70.48vw;
-  background-color: #E7DFD5;
+  width: 74.63%;
 }
 
 .size_list {
@@ -428,6 +421,117 @@ p{
   width: 100%;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.prod_right{
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.prod_item{
+  width: 32%;
+  margin-right: 1.97%;
+  margin-bottom: 3.9%;
+}
+
+.last_item{
+  margin-right: 0;
+}
+
+.prod_img{
+  width: 100%;
+}
+
+.prod_text{
+  margin-top: 7px;
+}
+
+.mobile-only-sort {
+  display: none;
+}
+
+@media (max-width: 912px) {
+  .desktop-only-header {
+    display: none;
+  }
+
+  .mobile-only-header {
+    display: initial;
+  }
+
+  .desktop-only-sort {
+    display: none;
+  }
+
+  .mobile-only-sort {
+    display: initial;
+  }
+}
+
+.mobile-only-sort{
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+}
+
+.menu_sort{
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.menu_sort ul ul li{
+  padding: 10px;
+
+}
+
+
+.menu_sort ul > li:hover{
+  background-color: #fff;
+}
+.menu_sort ul ul > li:hover{
+  background-color: #fff;
+}
+.menu_sort ul li, .menu ul{
+  display: inline-block;
+}
+.menu_sort ul{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background-color: #ff;
+  display: table;
+  width: 100%;
+}
+.menu_sort ul ul{
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  margin-top: 10px;
+  margin-left: -10px;
+}
+.menu_sort ul a{
+  color: #000;
+  text-decoration: none;
+}
+.menu_sort ul ul a{
+  color: #000;
+  text-decoration: none;
+}
+.menu_sort li:hover ul{
+  display: block;
+}
+
+.menu_sort li:hover li{
+  display: block;
 }
 
 
@@ -467,6 +571,18 @@ p{
   }
   .bottom_item{
     margin-bottom: 20px;
+  }
+
+  .prod_right{
+    width: 100%
+  }
+  .prod_item{
+    width: 49%;
+    margin-right: 1.97%;
+    margin-bottom: 3.9%;
+  }
+  .second_item{
+    margin-right: 0;
   }
 }
 
