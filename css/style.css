@@ -449,20 +449,40 @@ p{
   margin-top: 7px;
 }
 
+a{
+  text-decoration: none;
+}
 
+.pagination{
+  padding: 30px 0;
+}
 
-@media (max-width: 912px) {
-  .desktop-only-header {
-    display: none;
-  }
+.pagination ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
 
-  .mobile-only-header {
-    display: initial;
-  }
+.pagination a{
+  display: inline-block;
+  padding: 10px 18px;
+  color: #222;
+}
+.p8 a{
+  background-color: #000;
+  margin: auto 5px;
+  color: #fff;
+  font-weight: bold;
+  border: 3px solid #000;
+}
 
-  .desktop-only-sort {
-    display: none;
-  }
+.p8 li{
+
+}
+
+.p8 .is-active{
+  background-color: #fff;
+  color: #000;
 }
 
 .mobile-only-sort{
@@ -489,9 +509,7 @@ p{
 
 .menu_sort ul ul li{
   padding: 10px;
-
 }
-
 
 .menu_sort ul > li:hover{
   background-color: #fff;
@@ -604,6 +622,13 @@ p{
   font-family: Geometria;
 }
 
+.bucket_divs{
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
 .bucket_left{
   max-width: 777px;
@@ -631,7 +656,7 @@ p{
 
 
 .bucket_item_text{
-  width: 78.95%;
+  width: 70%;
   padding-left: 6.5%;
 }
 
@@ -648,11 +673,43 @@ p{
   width: 100%;
 }
 
-.bucket_right{
-  margin-right: 7.35%;
-  width: 57.17%;
-  background-color: #127654;
+.bucket_item_name{
+  margin-top: 2%;
 
+}
+
+.bucket_item_price{
+  margin-top: 8%;
+}
+
+.bucket_delete{
+  width: 24px;
+}
+
+.bucket_right{
+  margin-top: 8.9%;
+  width: 27.2%;
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
+
+.bucket_order_price{
+  padding-top: 30px;
+  display: inline-block;
+  padding-right: 10px;
+}
+
+
+.order_button{
+  margin-top: 40px;
+  border: 2px solid #000;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  background-color: #fff;
+  padding: 20px 30px;
+  font-family: Geometria;
 }
 
 @media(max-width: 1023px) {
