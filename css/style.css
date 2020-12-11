@@ -708,6 +708,90 @@ a{
   font-family: Geometria;
 }
 
+.auth_attention{
+  margin-left: 50px;
+  margin-top: 80px;
+}
+
+.auth_divs{
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.auth_left{
+  width: 44.8%;
+  margin-left: 70px;
+  margin-top: 60px;
+  margin-bottom: 11.7%;
+}
+
+.auth_big_text{
+  text-align: center;
+  margin-top: 8px;
+}
+
+.auth_right{
+  width: 44.8%;
+  margin-right: 70px;
+  margin-top: 60px;
+  margin-bottom: 11.7%;
+}
+
+.auth_button{
+  margin-top: 40px;
+  border: 2px solid #000;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  font-size: 24px;
+  background-color: #fff;
+  padding: 15px 100px;
+  font-family: Geometria;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.register_button{
+  margin-top: 40px;
+  border: 2px solid #000;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  font-size: 24px;
+  background-color: #fff;
+  padding: 15px 30px;
+  font-family: Geometria;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.email_input{
+  width: 390px;
+  height: 45px;
+  border: 2px solid #000;
+}
+
+.email_input_text{
+  margin-top: 71px;
+  margin-left: 50px;
+}
+
+.password_input{
+  width: 390px;
+  height: 45px;
+  border: 2px solid #000;
+}
+
+.password_input_text{
+  margin-top: 23px;
+  margin-left: 40px;
+}
+
 @media(max-width: 1023px) {
   .categ_main_page {
     flex-direction: column;
