@@ -840,12 +840,12 @@ a{
 }
 
 .adress_input_text{
-  margin-top: 55px;
+  margin-top: 50px;
   margin-left: 80px;
 }
 
 .blanc_space{
-  margin-top: 70px;
+  margin-top: 40px;
 }
 
 @media(max-width: 1023px) {
@@ -895,6 +895,47 @@ a{
   }
   .second_item{
     margin-right: 0;
+  }
+  .adress_divs{
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .adress_left{
+    width: 100%;
+    margin-top: 45px;
+    margin-bottom: 11.7%;
+    margin-left: 0;
+  }
+
+  .adress_big_text{
+    margin-top: 8px;
+  }
+
+  .adress_right{
+    display: none;
+  }
+  .adress_input{
+    width: 48%;
+    height: 35px;
+    border: 2px solid #000;
+
+  }
+  .adress_input_text{
+    margin-top: 50px;
+    margin-left: 0;
+  }
+  .adress_order_button{
+    margin-top: 70px;
+    border: 2px solid #000;
+    color: #000;
+    text-align: right;
+    text-decoration: none;
+    font-size: 24px;
+    background-color: #fff;
+    padding: 15px 20px;
+    font-family: Geometria;
+    float: right;
   }
 }
 
