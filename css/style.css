@@ -891,10 +891,10 @@ a{
 }
 
 .personal_right{
-  margin-top: 9.1%;
+  margin-top: 123px;
   width: 33%;
   margin-right: 16%;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   margin-left: 45px;
   height: 200px;
 
@@ -1019,6 +1019,39 @@ a{
     font-family: Geometria;
     float: right;
   }
+
+  .personal_left{
+    width: 100%;
+    margin-left: 39px;
+    padding-top: 28px;
+    margin-bottom: 3%;
+  }
+
+  .personal_item{
+    margin-top: 51px;
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .personal_right{
+    margin-top: 123px;
+    width: 100%;
+    margin-right: 16%;
+    margin-bottom: 50px;
+    margin-left: 45px;
+    height: 200px;
+  }
+
+  .personal_delivery{
+    width: 100%;
+    margin-left: 20px;
+    margin-bottom: 11.7%;
+  }
+
+
 }
 
 
