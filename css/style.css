@@ -848,6 +848,88 @@ a{
   margin-top: 40px;
 }
 
+/* Личный кабинет */
+
+.personal_divs{
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.personal_left{
+  width: 37.6%;
+  margin-left: 39px;
+  padding-top: 28px;
+  margin-bottom: 3%;
+}
+
+.personal_item{
+  margin-top: 51px;
+  margin-left: 42px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.personal_name{
+  margin-top: 24px;
+}
+
+.personal_email{
+  margin-top: 14px;
+}
+
+.personal_change_data{
+  margin-top: 23px;
+}
+
+.personal_change_password{
+  margin-top: 9px;
+}
+
+.personal_right{
+  margin-top: 9.1%;
+  width: 33%;
+  margin-right: 16%;
+  margin-bottom: 30px;
+  margin-left: 45px;
+  height: 200px;
+
+}
+
+.personal_order_item_date{
+  margin-top: 5px;
+}
+
+.personal_order_item{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.personal_order_cost{
+  margin-right: 29px;
+  margin-top: 9px;
+}
+
+.personal_hr{
+  border: none;
+    background-color: #000;
+    color: #000;
+    height: 1px;
+    width: 100%;
+}
+
+.personal_delivery{
+  width: 37.6%;
+  margin-left: 39px;
+  margin-bottom: 11.7%;
+}
+
 @media(max-width: 1023px) {
   .categ_main_page {
     flex-direction: column;

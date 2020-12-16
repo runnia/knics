@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KNICS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="header desktop-only-header">
+        <div class="header_wrapper">
+          <nav class="header_nav ">
+            <ul class="header_list">
+              <li class="header_item left">Каталог</li>
+              <li class="header_item left"> <a href="">О бренде</a></li>
+              <li class="header_item left"> <a href="">Lookbook</a></li>
+            </ul>
+            <div class = "logo"> <a href="/"><img src="img/KNICS.png" alt="KNICS"></a></div>
+            <ul class="header_list">
+              <li class="header_item right"><img height="24" src="img/icons/search.svg" alt=""></li>
+              <li class="header_item right"><img height="24" src="img/icons/person.svg" alt=""></li>
+              <li class="header_item right"><img height="24" src="img/icons/bucket.svg" alt=""></li>
+            </ul>
+          </nav>
+        </div>
+    </header>
+
+    <header class="mobile-only-header">
+      <div class="header_mobile">
+        <div class = "logo_mobile"> <a href="/"><img src="img/KNICS.png" alt="KNICS"></a></div>
+      <a class="menu__icon mobile"><span></span></a>
+       <ul class="menu mobile">
+         <li><a href="" class="menu__item">Каталог</a></li>
+         <li><a href="" class="menu__item">О бренде</a></li>
+         <li><a href="" class="menu__item">Lookbook</a></li>
+         <li><a href="" class="menu__item">Поиск</a></li>
+         <li><a href="" class="menu__item">Корзина</a></li>
+       </ul>
+       <script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
+       <script type="text/javascript">
+       jQuery(function($) {
+          $(document).ready(function() {
+          $('.menu__icon').click(function(){
+          $('body').toggleClass('menu_shown');
+          });
+          });
+        });
+       </script>
+       </div>
+    </header>
+    <main>
+       <div class="wrapper">
+         <div class="personal_divs">
+         <div class="personal_left">
+            <p class="text_36 medium">Личный кабинет</p>
+            <div class="personal_item">
+              <div class="bucket_item_text">
+                <p class="text_20 personal_categ_name">Личные данные</p>
+                <hr class="personal_hr opacity30">
+                <p class="text_15 medium personal_name">Амельченкова Ксения Николаевна</p>
+                <p class="text_15 medium personal_email">example@mail.ru</p>
+                <p class="text_15 medium personal_email">89067659878</p>
+                <a href="#"><p class="text_15 personal_change_data">Изменить личные данные</p></a>
+                <a href="#"><p class="text_15 personal_change_password">Изменить пароль</p></a>
+              </div>
+              </div>
+         </div>
+
+         <div class="personal_right">
+           <p class="text_20 personal_categ_name">Заказы</p>
+           <hr class="personal_hr opacity30">
+           <div class="personal_orders">
+             <div class="personal_order_item">
+               <div class="personal_order_item_left">
+                 <p class="text_15">Заказ №3456</p>
+                 <p class="text_15 opacity30 personal_order_item_date">23.09.2020</p>
+               </div>
+               <div class="personal_order_item_right">
+                  <p class="text_15 personal_order_cost">11 560 РУБ</p>
+               </div>
+             </div>
+             <div class="personal_order_item">
+               <div class="personal_order_item_left">
+                 <p class="text_15">Заказ №7856</p>
+                 <p class="text_15 opacity30 personal_order_item_date">06.05.2020</p>
+               </div>
+               <div class="personal_order_item_right">
+                  <p class="text_15 personal_order_cost">156 630 РУБ</p>
+               </div>
+             </div>
+           </div>
+         </div>
+
+         <div class="personal_delivery">
+            <div class="personal_item">
+              <div class="bucket_item_text">
+                <p class="text_20 personal_categ_name">Адрес доставки</p>
+                <hr class="personal_hr opacity30">
+                <p class="text_15 medium personal_email">Россия, Санкт-Петербург, Петергоф, Ботаническая, 70, 235</p>
+                <a href="#"><p class="text_15 personal_change_data">Изменить адрес доставки</p></a>
+              </div>
+              </div>
+         </div>
+
+       </div>
+      </div>
+      <div class="medium_wrapper">
+        <div class="bottom_wrapper">
+        <div class="bottom_item">
+          <p class="text_24 bottom_text_top">Покупателям</p>
+          <p class="text_16 bottom_text">Оплата и доставка</p>
+          <p class="text_16 bottom_text">Возврат</p>
+          <p class="text_16 bottom_text">Вопросы и ответы</p>
+        </div>
+        <div class="bottom_item">
+          <p class="text_24 bottom_text_top">О бренде</p>
+          <p class="text_16 bottom_text">Магазины</p>
+          <p class="text_16 bottom_text">Контакты</p>
+          <p class="text_16 bottom_text">История</p>
+          <p class="text_16 bottom_text">Пресса о нас</p>
+        </div>
+        <div class="bottom_item">
+          <p class="text_24 bottom_text_top">Наши соцсети</p>
+          <p class="text_16 bottom_text">Инстаграм</p>
+          <p class="text_16 bottom_text">Вконтакте</p>
+          <p class="text_16 bottom_text">Ютуб</p>
+          <p class="text_16 bottom_text">Фейсбук</p>
+        </div>
+        </div>
+      </div>
+      </div>
+    </main>
+  </body>
+</html>
