@@ -720,6 +720,8 @@ a{
   margin-left: 70px;
   margin-top: 60px;
   margin-bottom: 11.7%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .auth_big_text{
@@ -732,6 +734,20 @@ a{
   margin-right: 70px;
   margin-top: 60px;
   margin-bottom: 11.7%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.inputs{
+  display: table;
+  margin-right: auto;
+  margin-left: 17%;
+}
+
+.register_auth_inputs{
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .auth_button{
@@ -764,26 +780,53 @@ a{
   transform: translate(-50%, 0);
 }
 
+.register_text{
+  margin-top: 30px;
+  text-align:center;
+}
+
+.register_link{
+  text-decoration: underline;
+}
+
 .email_input{
   width: 390px;
   height: 45px;
   border: 2px solid #000;
+  font: 400 20px Geometria;
 }
 
 .email_input_text{
+  margin-top: 23px;
+}
+
+.name_input{
+  width: 390px;
+  height: 45px;
+  border: 2px solid #000;
+  font: 400 20px Geometria;
+}
+
+.name_input_text{
   margin-top: 71px;
-  margin-left: 50px;
+
 }
 
 .password_input{
   width: 390px;
   height: 45px;
   border: 2px solid #000;
+  font: 400 20px Geometria;
 }
 
 .password_input_text{
   margin-top: 23px;
-  margin-left: 40px;
+
+}
+
+.second_password_input_text{
+  margin-top: 23px;
+
 }
 
 .adress_divs{
@@ -928,6 +971,10 @@ a{
   width: 37.6%;
   margin-left: 39px;
   margin-bottom: 11.7%;
+}
+
+.personal_exit{
+  margin-top: 50px;
 }
 
 @media(max-width: 1023px) {
