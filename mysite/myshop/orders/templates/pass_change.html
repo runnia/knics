@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "base_generic.html" %}
+
+{%load static%}
+{% block main %}
+       <div class="wrapper">
+         <div class="auth_divs">
+         <div class="auth_left">
+            <p class="text_36 medium auth_big_text">Смена пароля</p>
+            <form action="." method="post", class="auth_left">
+                {{form.as_p}}
+        <p><input type="submit"  name="register_button" class="register_button" value="Сменить"></p>
+        {% csrf_token %}
+    </form>
+         </div>
+
+       </div>
+       </div>
+{% endblock%}

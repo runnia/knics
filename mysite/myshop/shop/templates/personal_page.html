@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends "base_generic.html" %}
+
+{%load static%}
+{% block main %}
+       <div class="wrapper">
+         <div class="personal_divs">
+         <div class="personal_left">
+            <p class="text_36 medium">Личный кабинет</p>
+            <div class="personal_item">
+              <div class="bucket_item_text">
+                <p class="text_20 personal_categ_name">Личные данные</p>
+                <hr class="personal_hr opacity30">
+                <p class="text_15 medium personal_name">{{user.first_name}}
+                  {%if profile.patronymic%}{{profile.patronymic}} {%endif%} {{user.last_name}}</p>
+                <p class="text_15 medium personal_email">{{user.email}}</p>
+                <p class="text_15 medium personal_email">{%if profile.phone_number%}{{profile.phone_number}}{%endif%}</p>
+                <a href="{%url 'orders:password_change'%}"><p class="text_15 personal_change_password">Изменить пароль</p></a>
+              </div>
+              </div>
+         </div>
+
+         <div class="personal_right">
+           <p class="text_20 personal_categ_name">Заказы</p>
+           <hr class="personal_hr opacity30">
+           <div class="personal_orders">
+             {%for ord in order%}
+             <div class="personal_order_item">
+               <div class="personal_order_item_left">
+                 <p class="text_15">Заказ №{{ord.id_order}}</p>
+                 <p class="text_15 opacity30 personal_order_item_date">{{ord.data_of_issue}}</p>
+               </div>
+               <div class="personal_order_item_right">
+                  <p class="text_15 personal_order_cost">{{ord.price}} РУБ</p>
+               </div>
+             </div>
+             {%endfor%}
+           </div>
+         </div>
+
+         <div class="personal_delivery">
+            <div class="personal_item">
+              <div class="bucket_item_text">
+                <p class="text_20 personal_categ_name">Адрес доставки</p>
+                <hr class="personal_hr opacity30">
+                <p class="text_15 medium personal_email">{%if profile.adress%}{{profile.adress}}{%endif%}</p>
+                <a href="{%url 'orders:logout'%}"><p class="text_20 personal_exit">Выйти из аккаунта</p></a>
+              </div>
+              </div>
+         </div>
+
+
+
+       </div>
+      </div>
+{% endblock%}

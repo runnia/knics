@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends "base_generic.html" %}
+
+{%load static%}
+{% block main %}
+<!--       <div class="wrapper">-->
+<!--         <p class="text_20 auth_attention">Чтобы оформить заказ, пожалуйста, войдите или зарегистрируйтесь</p>-->
+<!--         <div class="auth_divs">-->
+<!--         <div class="auth_left">-->
+<!--            <p class="text_36 medium auth_big_text">Вход</p>-->
+<!--            <p class="text_20 email_input_text">E-mail  <input type="email" name="email" class="email_input"></p>-->
+<!--            <p class="text_20 password_input_text">Пароль <input type="password" name="password" class="password_input"></p>-->
+<!--            <button type="button" name="auth_button" class="auth_button" >Войти</button>-->
+<!--         </div>-->
+
+<!--        <form action="." method="post">-->
+<!--        {{ form.as_p }}-->
+<!--        {% csrf_token %}-->
+<!--        <p><input type="submit" value="Log-in"></p>-->
+<!--        </form>-->
+
+ <h1>Log-in</h1>
+    {% if form.errors %}
+        <p>
+            Your username and password didn't match.
+            Please try again.
+        </p>
+    {% else %}
+        <p>Please, use the following form to log-in:</p>
+    {% endif %}
+    <div class="login-form">
+        <form action="{% url 'orders:login' %}" method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}"/>
+            <p><input type="submit" value="Log-in"></p>
+        </form>
+    </div>
+{% endblock%}

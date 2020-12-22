@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% extends "base_generic.html" %}
+
+{%load static%}
+{% block main %}
+    <main>
+       <div class="wrapper">
+         <div class="bucket_divs">
+         <div class="bucket_left">
+            <p class="text_36 medium">Корзина</p>
+             {% if cart|length == 0 %}
+             <p class="text_20" style="margin-top: 25%">Ваша корзина пуста </p>
+             {%endif%}
+           {% for item in cart %}
+            {% with product=item.product %}
+            <div class="bucket_item">
+              <div class="bucket_item_img_div">
+                <a href="{{ product.get_absolute_url }}">
+                <img class="bucket_item_img" src=" {{ product.image_1.url }}" alt="">
+                </a>
+              </div>
+              <div class="bucket_item_text">
+                <p class="text_20 bucket_item_name" style="margin-top: 0%">{{product.product_name}}</p>
+                <p class="text_15 bucket_size">Количество {{ item.quantity }}</p>
+                  <p></p>
+                  <p class="text_15 bucket_size">Размер </p>
+                <p class="text_15 bucket_size">{{item.size}}</p>
+                <p class="text_15 bucket_item_price">{{ item.total_price }} РУБ</p>
+              </div>
+              <div class="delete_icon">
+                  <form action="{% url 'cart:cart_remove' product.id %}" method="post">
+                      <input type="hidden"  name="Size" value="{{item.size}}">
+                      <input type="image" height="24" src="{% static 'img/icons/delete.svg' %}">
+                      {% csrf_token %}
+                  </form>
+              </div>
+              </div>
+           {% endwith %}
+        {% endfor %}
+
+         </div>
+         <div class="bucket_right">
+           <p class="text_20 ">Информация о заказе</p>
+           <p class="text_15 bucket_order_price">Стоимость товаров     </p>
+           <p class="text_15 bucket_order_price">{{ cart.get_total_price }} РУБ</p>
+             {% if cart|length != 0 %}
+           <a href="{% url 'orders:order_create' %}" class="button">
+               <button type="button" name="buy_button" class="order_button" >Оформить заказ</button>
+               </a>
+             {%endif%}
+
+           <p class="text-right">
+               <a href="{% url 'shop:catalog' %}"> <button type="button" name="buy_button" class="order_button" >Продолжить покупки</button></a>
+         </p>
+
+         </div>
+
+       </div>
+
+      </div>
+    </main>
+  </body>
+</html>
+
+{% endblock%}

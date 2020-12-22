@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends "base_generic.html" %}
+
+{%load static%}
+{% block main %}
+    <div class="wrapper">
+      <div class="catalog_wrapper">
+        <div class="sort_left desktop-only-sort">
+        <ul class="categories_list">
+          <li class="sort_name text_20">
+                        <a>Одежда</a>
+                   {% for c in categories %}
+                <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        </div>
+
+        <div class="mobile-only-sort">
+          <div class="menu_sort">
+            <ul>
+          <li>КАТЕГОРИЯ
+          <ul class="categories_list">
+            {% for c in categories %}
+                <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                </li>
+            {% endfor %}
+          </ul>
+        </li>
+            </ul>
+
+        </div>
+        </div>
+        </ul>
+        <div class="prod_right">
+        {% for product in products %}
+
+          <div class="prod_item">
+            <a href="{{ product.get_absolute_url }}">
+              <img class = "prod_img" src="{{ product.image_1.url }}">
+            <p class="text_15 prod_text">{{ product.product_name}}</p>
+            <p class="text_12 prod_text">{{ product.price }} РУБ</p>
+            </a>
+            </div>
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+{% endblock%}

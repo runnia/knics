@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+{% extends "base_generic.html" %}
+
+{%load static%}
+{% block main %}
+    <p class="text_36 medium auth_big_text">Вы вышли из аккаунта</p>
+    <a href="{% url 'orders:login' %}"> <p class="text_36 medium auth_big_text" >Войти</a></p>
+{% endblock %}

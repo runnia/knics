@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends "base_generic.html" %}
+
+{%load static%}
+{% block main %}
+       <div class="wrapper">
+         <div class="adress_divs">
+         <div class="adress_left">
+            <p class="text_36 medium adress_big_text">Оформление заказа</p>
+             <form action="." method="post" >
+              {% csrf_token %}
+                <p class="text_20 adress_input_text">Имя {{form.first_name}}</p>
+                <p class="text_20 adress_input_text">Фамилия {{form.last_name}}</p>
+                <p class="text_20 adress_input_text">Отчество {{form.patronymic}}</p>
+                <p class="text_20 adress_input_text">Телефон {{form.phone_number}}</p>
+                <p class="text_20 adress_input_text">Город {{form.city}}</p>
+                <p class="text_20 adress_input_text">Улица {{form.street}}</p>
+                <p class="text_20 adress_input_text">Дом <{{form.house}}</p>
+                <p class="text_20 adress_input_text">Квартира {{form.flat}}</p>
+                <p class="blanc_space">   </p>
+            <button type="submit" name="adress_order_button" class="adress_order_button" >Оформить заказ</button>
+             </form>
+         </div>
+         <div class="adress_right">
+           <p class="text_20 ">Информация о заказе</p>
+           <p class="text_15 adress_order_price">Стоимость товаров     </p>
+           <p class="text_15 adress_order_price">{{cart.get_total_price}}</p>
+         </div>
+       </div>
+       </div>
+
+{% endblock%}

@@ -1,0 +1,61 @@
+{% extends "base_generic.html" %}
+
+{%load static%}
+{% block main %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <main>
+      <div class="wrapper">
+        <div class="items_divs">
+          <div class="left_item">
+          </div>
+          <div class="right_item">
+            <div class="itempage_item">
+              <img src="{{product.image_1.url}}" alt="">
+              <img src="{{product.image_2.url}}" alt="">
+              <img src="{{product.image_3.url}}" alt="">
+            </div>
+            <div class="itempage_padding_first">
+            </div>
+            <div class="itempage_itemdescribe">
+              <p class="text_36 medium">{{product.product_name}}</p>
+              <p class="text_36 itempage_price">{{product.price}} РУБ</p>
+              <p class="text_24 itempage_color">{{product.description}}</p>
+              <p class="text_24 itempage_size">Выберите размер</p>
+              <form action="{% url 'cart:cart_add' product.id  %}" method="post">
+              <select class="size_list text_20 opacity100"  id="size" name="Size">
+                {% if product.size_xs != 0%}
+                <option value="XS">XS</option>
+                {%endif%}
+                {% if product.size_s != 0%}
+                <option value="S">S</option>
+                {%endif%}
+                {% if product.size_m != 0%}
+                <option value="M">M</option>
+                {%endif%}
+                {% if product.size_l != 0%}
+                  <option value="L">L</option>
+                {%endif%}
+                {% if product.size_xl != 0%}
+                <option value="XL">XL</option>
+                {%endif%}
+              </select>
+              <a href='{% url "shop:develop" %}'>
+               <p class="text_16 itempage_tablesize">Таблица размеров</p>
+              </a>
+            <p class="text_24 itempage_size">Выберите количество </p>
+            <div>
+            {{ cart_product_form }}
+            </div >
+            {% csrf_token %}
+                <p class="text_24" style="margin-top: 10; color: #f00"> {{error}} </p>
+          <input type="submit" name="buy_button" class="buy_button" value="Добавить в корзину">
+          </form>
+            </div>
+            <div class="itempage_padding_second">
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+{% endblock%}

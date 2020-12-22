@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends "base_generic.html" %}
+
+{%load static%}
+{% block main %}
+       <div class="wrapper" >
+         <div class="auth_right" style="margin-left: auto;margin-right: auto;">
+             <form action="." method="post" >
+           <p class="text_36 medium auth_big_text">Регистрация</p>
+                 {% for dict in user_form.errors.values %}
+                       {%if forloop.counter == 1 %}
+                        {{ dict }}
+                       {%endif%}
+                {% endfor %}
+                   </p>
+                 <p class="text_20 email_input_text">Имя <p>{{ user_form.first_name}} </p></p>
+           <p class="text_20 password_input_text">E-mail <p>{{ user_form.username}} </p></p>
+           <p class="text_20 password_input_text">Пароль <p>{{ user_form.password}}</p></p>
+                 <p class="text_20 password_input_text">Повторите пароль <p>{{ user_form.password2}}</p></p>
+           <button type="submit" name="register_button" class="register_button" >Зарегистрироваться</button>
+                 {% csrf_token %}
+             </form>
+         </div>
+       </div>
+       </div>
+{% endblock%}

@@ -1,0 +1,48 @@
+{% extends "base_generic.html" %}
+
+{%load static%}
+{% block main %}
+ <main class="main">
+      <div class="banner">
+        <img class="new_collection" src="{% static 'img/Group 66.png' %}" alt="">
+      </div>
+      <div class="popular">
+        <div class="medium_wrapper">
+          <p class="popular_big_text text_30 medium">Популярное</p>
+          <div class="popular_wrapper">
+              {% for product in products %}
+          <div class="popular_item">
+              <a href="{{ product.get_absolute_url }}">
+            <img class = "popular_img" src= "{{product.image_1.url}}" alt="">
+            <p class="text_15 popular_text">{{product.product_name}}</p>
+            <p class="text_12 popular_text">{{product.price}} РУБ</p>
+              </a>
+          </div>
+
+              {% endfor %}
+        </div>
+        </div>
+        </div>
+        <div class="camel_bg">
+
+            <div class="new_trends_wrapper">
+              <img class = "new_trends left_new" src="{% static 'img/Group 48.png' %}" alt="">
+              <img class = "new_trends" src="{% static 'img/Group 49.png' %}" alt="">
+            </div>
+
+        </div>
+      <div class="wrapper">
+        <div class="categ_main_page">
+          <div class="categ_item">
+            <img class = "categ_img" src="{% static 'img/Group 52.png' %}" alt="">
+          </div>
+          <div class="categ_item">
+            <img class = "categ_img" src="{% static 'img/Group 50.png' %}" alt="">
+          </div>
+          <div class="categ_item last_item_categ">
+            <img class = "categ_img" src="{% static 'img/Group 51.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </main>
+{% endblock%}

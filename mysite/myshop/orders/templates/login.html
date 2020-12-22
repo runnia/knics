@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends "base_generic.html" %}
+
+{%load static%}
+{% block main %}
+       <div class="wrapper">
+         <p class="text_20 auth_attention">Чтобы оформить заказ, пожалуйста, войдите или зарегистрируйтесь</p>
+         <div class="auth_divs">
+         <div class="auth_left">
+            <p class="text_36 medium auth_big_text">Вход</p>
+               {% if errors %}
+                  <p class="text_20" style="color: #f00 "> Введен неверный email или пароль</p>
+              {% endif %}
+            <form action="." method="post" >
+              {% csrf_token %}
+            <p class="text_20 email_input_text">E-mail </p> {{form.username}}
+            <p class="text_20 password_input_text">Пароль </p>{{form.password}}
+              <input type="hidden" name="next" value="{{ next }}"/>
+                <li class="google">
+        <a href="{% url 'social:begin' 'facebook' %}">Войти через Facebook</a>
+                </li>
+            <button type="submit" name="auth_button" class="auth_button" >Войти</button>
+            <p class="text_15 register_text">Еще не зарегистрированы? <a href="{% url 'orders:register' %}" class="register_link">Регистрация</a></p>
+            </form>
+         </div>
+
+       </div>
+       </div>
+{% endblock%}
