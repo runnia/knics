@@ -54,7 +54,7 @@ class OrderCreateForm(forms.Form):
     first_name = forms.CharField(label='', widget=forms.TextInput(attrs={"class": "adress_input"}), required= True)
     patronymic = forms.CharField(label='', widget=forms.TextInput(attrs={"class": "adress_input"}), required= False)
     last_name = forms.CharField(label='', widget=forms.TextInput(attrs={"class": "adress_input"}), required= True)
-    phone_number = forms.CharField(max_length=18, widget=forms.TextInput(attrs={"class": "adress_input", 'placeholder': '+7'}), required= True)
+    phone_number = forms.CharField(max_length=18, validators=[telephone, MaxLengthValidator], widget=forms.TextInput(attrs={"class": "adress_input", 'placeholder': '79000000000'}), required= True)
     city = forms.CharField(label='', widget=forms.TextInput(attrs={"class": "adress_input"}), required= True)
     street = forms.CharField(label='', widget=forms.TextInput(attrs={"class": "adress_input"}), required= True)
     house = forms.CharField(label='', widget=forms.TextInput(attrs={"class": "adress_input"}), required= True)

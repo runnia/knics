@@ -21,7 +21,7 @@ class Categories(models.Model):
     slug = models.SlugField(max_length=200, db_index=True)
 
     class Meta:
-        managed = True
+        managed =True
         db_table = 'categories'
 
     def __str__(self):
@@ -36,18 +36,12 @@ class Categories(models.Model):
 class Users(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, models.CASCADE, db_column='user_id')
     patronymic = models.TextField(max_length=64, blank=True, null=True)
-    phone_number = models.IntegerField(blank=True, null=True)
+    phone_number = models.CharField(max_length=12, blank=True, null=True)
     adress = models.TextField(max_length=256, blank=True, null=True)
-    orders = models.TextField(blank=True, null=True)
-    id = models.AutoField(primary_key=True)
 
     class Meta:
         managed = True
         db_table = 'clients'
-
-
-    def get_total_cost(self):
-        return sum(item.get_cost() for item in self.items.all())
 
     def __str__(self):
         return str(self.user)
@@ -64,28 +58,28 @@ class Collection(models.Model):
     def __str__(self):
         return self.name
 
-
-class Orders(models.Model):
-    id_client = models.ForeignKey(settings.AUTH_USER_MODEL, models.CASCADE, db_column='id_client')
-    id_products = models.ForeignKey('Products', models.CASCADE, db_column='id_products')
-    id_order = models.IntegerField()
-    quantity = models.IntegerField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    size = models.CharField(max_length=45)
-    status = models.CharField(max_length=45)
-    data_of_issue = models.CharField(max_length=128,blank=True, null=True)
+class Order(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    patronymic = models.CharField(max_length=50)
+    email = models.EmailField()
+    adress = models.TextField(max_length=256, blank=True, null=True)
+    created = models.TextField()
     id = models.AutoField(primary_key=True)
+    status = models.CharField(max_length=250)
+    phone_number = models.CharField(max_length=12, blank=True, null=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
 
     class Meta:
         managed = True
-        db_table = 'orders'
-        unique_together = (('id_client', 'id_products', 'id_order', 'size'),)
-
-    def get_cost(self):
-        return self.price * self.quantity
+        db_table = 'order'
 
     def __str__(self):
-        return self.id_order
+        return str(self.id)
+
+    def get_total_cost(self):
+        return sum(item.get_cost() for item in self.items.all())
+
 
 def image_folder1(instance, filename):
     filename = str(1) + '.' + filename.split('.')[1]
@@ -129,3 +123,23 @@ class Products(models.Model):
         return reverse('shop:product_detail',
                        args=[self.id, self.slug])
 
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
+    product = models.ForeignKey(Products, related_name='order_items', on_delete=models.CASCADE)
+    size = models.CharField(max_length=45)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.PositiveIntegerField(default=1)
+    id = models.AutoField(primary_key=True)
+    
+    class Meta:
+        managed = True
+        db_table = 'orderitem'
+        
+
+
+    def __str__(self):
+        return '{}'.format(self.id)
+
+    def get_cost(self):
+        return self.price * self.quantity

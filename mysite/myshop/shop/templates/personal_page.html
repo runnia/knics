@@ -26,14 +26,15 @@
            <div class="personal_orders">
              {%for ord in order%}
              <div class="personal_order_item">
-               <div class="personal_order_item_left">
-                 <p class="text_15">Заказ №{{ord.id_order}}</p>
-                 <p class="text_15 opacity30 personal_order_item_date">{{ord.data_of_issue}}</p>
-               </div>
-               <div class="personal_order_item_right">
-                  <p class="text_15 personal_order_cost">{{ord.price}} РУБ</p>
-               </div>
-             </div>
+              <div class="personal_order_item_left">
+                <p class="text_15">Заказ №{{ord.id}}</p>
+                <p class="text_15 opacity30 personal_order_item_date">{{ord.created}}</p>
+                <p class="text_15 opacity30 personal_order_item_date">{{ord.adress}}</p>
+              </div>
+              <div class="personal_order_item_right">
+                 <p class="text_15 personal_order_cost">{{ord.price}} РУБ</p>
+              </div>
+            </div>
              {%endfor%}
            </div>
          </div>

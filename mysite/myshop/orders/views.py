@@ -3,13 +3,13 @@ import datetime
 from django.shortcuts import redirect,render, reverse
 from .forms import UserRegistrationForm
 from shop.models import Users
-from .forms import  LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
+from .forms import  LoginForm, UserRegistrationForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .backends import EmailBackend
 from django.shortcuts import render
-from shop.models import Orders
+from shop.models import Order, OrderItem
 from .forms import OrderCreateForm
 from cart.cart import Cart
 
@@ -57,27 +57,12 @@ def register(request):
         user_form = UserRegistrationForm()
     return render(request, 'register.html', {'user_form': user_form})
 
-# @login_required
-# def edit(request):
-#     if request.method == 'POST':
-#         user_form = UserEditForm(instance=request.user, data=request.POST)
-#         profile_form = ProfileEditForm(instance=request.user.profile, data=request.POST, files=request.FILES)
-#         if user_form.is_valid() and profile_form.is_valid():
-#             user_form.save()
-#             profile_form.save()
-#     else:
-#         user_form = UserEditForm(instance=request.user)
-#         profile_form = ProfileEditForm(instance=request.user.profile)
-#         return render(request,
-#                       'register_done.html',
-#                       {'user_form': user_form,
-#                        'profile_form': profile_form})
 
 @login_required
 def dashboard(request):
     user = Users.objects.get(user_id=request.user.id)
-    order = Orders.objects.all()
-    order = order.filter(id_client=request.user.id)
+    order = Order.objects.all()
+    order = order.filter(email=request.user.email)
     return render(request, 'personal_page.html', {'section': 'dashboard',
                                                   'user': request.user,
                                                   'profile': user,
@@ -85,6 +70,7 @@ def dashboard(request):
 
 @login_required
 def order_create(request):
+    error =''
     cart = Cart(request)
     if request.method == 'POST':
         form = OrderCreateForm(request.POST)
@@ -95,33 +81,38 @@ def order_create(request):
             user.patronymic = cd['patronymic']
             request.user.last_name= cd['last_name']
             user.first_name = cd['first_name']
-            user.adress = cd['city'] +' ' + cd['street'] +' ' + cd['house']
+            adress = cd['city'] +' ' + cd['street'] +' ' + cd['house']
             if cd['flat']:
-              user.adrees += ' кв ' + cd['flat']
-            order = Orders.objects.all()
-            s = []
-            request.user.save()
-            for ord in order:
-                if ord.id_order not in s:
-                    s.append(ord.id_order)
-            if user.orders:
-             user.orders = user.orders + ' ' + str(len(s)+1)
-            else:  user.orders = str(len(s)+1)
-            user.save()
-            for item in cart:
-                Orders.objects.create(id_client=request.user,
-                                      id_order = len(s)+1,
-                                         id_products=item['product'],
-                                         price=item['price'],
-                                         quantity=item['quantity'],
-                                         size =item['size'],
+                adrees += ' кв ' + cd['flat']
+
+            Order.objects.create(first_name=cd['first_name'],
+                                         last_name = cd['last_name'],
+                                         patronymic = cd['patronymic'],
                                          status = 'В обработке',
-                                         data_of_issue = datetime.datetime.now())
+                                         email = request.user.email,
+                                         created = str(datetime.datetime.now()),
+                                         phone_number = cd['phone_number'],
+                                         adress = adress,)
+            user.adress = adress
+            user.save()
+            request.user.save()
+            orders = Order.objects.last()
+            for item in cart:
+                OrderItem.objects.create(order=orders,
+                                         product=item['product'],
+                                         size = item['size'],
+                                         price=item['price'],
+                                         quantity=item['quantity'])
+            orders.price = cart.get_total_price()
+            orders.save()
             # очистка корзины
             cart.clear()
             return render(request, 'good.html',
-                          {'order': order})
+                          {'order': orders})
+        else:
+            error = "Введите телефон в формате 79000000000"
+
     else:
         form = OrderCreateForm
     return render(request, 'adress.html',
-                  {'cart': cart, 'form': form})
+                  {'cart': cart, 'form': form, 'error': error})

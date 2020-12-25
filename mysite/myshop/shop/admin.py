@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Products, Categories, Collection, Orders, Users
+from .models import Products, Categories, Collection, Order, Users
 
 # admin.site.register(Products)
 # admin.site.register(Categories)
@@ -18,6 +18,12 @@ class ProductAdmin(admin.ModelAdmin):
     #list_editable = ['price']
     prepopulated_fields = {'slug': ('product_name',)}
 admin.site.register(Products, ProductAdmin)
+
+
+class OrdersAdmin(admin.ModelAdmin):
+     list_display = ['first_name','last_name','patronymic','email','phone_number', 'price', 'adress', 'status']
+     list_filter = ['status']
+admin.site.register(Order, OrdersAdmin)
 
 
 
