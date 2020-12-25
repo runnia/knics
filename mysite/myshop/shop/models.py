@@ -21,7 +21,7 @@ class Categories(models.Model):
     slug = models.SlugField(max_length=200, db_index=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'categories'
 
     def __str__(self):
@@ -36,12 +36,13 @@ class Categories(models.Model):
 class Users(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, models.CASCADE, db_column='user_id')
     patronymic = models.TextField(max_length=64, blank=True, null=True)
-    phone_number = models.IntegerField(max_length=11, blank=True, null=True)
+    phone_number = models.IntegerField(blank=True, null=True)
     adress = models.TextField(max_length=256, blank=True, null=True)
     orders = models.TextField(blank=True, null=True)
+    id = models.AutoField(primary_key=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'clients'
 
 
@@ -57,7 +58,7 @@ class Collection(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'collection'
 
     def __str__(self):
@@ -76,7 +77,7 @@ class Orders(models.Model):
     id = models.AutoField(primary_key=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'orders'
         unique_together = (('id_client', 'id_products', 'id_order', 'size'),)
 
@@ -118,7 +119,7 @@ class Products(models.Model):
 
     class Meta:
         ordering = ['number_of_sold']
-        managed = False
+        managed = True
         db_table = 'products'
 
     def __str__(self):

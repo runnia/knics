@@ -41,7 +41,6 @@ ul {
 
 .header_wrapper{
   max-width: 94.4vmax;
-
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -49,7 +48,6 @@ ul {
   justify-content: space-between;
   padding-top: 50px;
   margin-bottom: 27px;
-
 }
 
 .header_nav{
@@ -58,7 +56,6 @@ ul {
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-
 }
 
 .header_list{
@@ -105,8 +102,6 @@ ul {
 .mobile-only-header {
   display: none;
 }
-
-
 
 .header_mobile{
   height: 100px;
@@ -206,9 +201,6 @@ ul {
   padding: 25px 0;
 }
 
-
-
-
 .new_collection{
   width: 100%;
 }
@@ -221,14 +213,12 @@ ul {
 }
 
 .popular_wrapper{
-
   max-width: 100%;
   margin: 0 auto;
   display: flex;
   width: 100%;
   flex-wrap: wrap;
   padding-bottom: 15vmin;
-
 }
 
 .text_30{
@@ -263,10 +253,6 @@ ul {
   opacity: 0.3;
 }
 
-.opacity100{
-  opacity: 100;
-}
-
 .medium {
   font-weight: 500;
 }
@@ -281,16 +267,9 @@ ul {
 }
 
 .popular_item{
-  width: 23.8%;
-  /*
-  width: 18.68vmax;
-  */
-
-  padding-right: 1.25vmax;
-}
-
-.last_item{
-  padding-right: 0;
+  width: 23%;
+  padding-right: 1vmax;
+  margin-bottom: 3%;
 }
 
 .popular_img{
@@ -305,6 +284,7 @@ p{
   padding-top: 5px;
 }
 
+
 .camel_bg{
   background-color: #E7DFD5;
   width: 100%;
@@ -313,14 +293,12 @@ p{
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-
 }
 
 .new_trends_wrapper{
   display: flex;
   flex-wrap: wrap;
   width: 78.47vmax;
-
   text-align: center;
   padding-top: 17vmin;
   padding-bottom: 17vmin;
@@ -346,7 +324,6 @@ p{
   flex-wrap: wrap;
   padding-top: 14vmin;
   padding-bottom: 11.5vmin;
-
 }
 
 .categ_item{
@@ -369,7 +346,6 @@ p{
   flex-wrap: wrap;
   justify-content: space-between;
   padding-bottom: 5vmin;
-
 }
 
 .bottom_text_top{
@@ -391,8 +367,6 @@ p{
   margin-top: 20px;
 }
 
-
-
 .sort_left ul li {
   list-style: none;
   margin-bottom: 16px;
@@ -413,7 +387,6 @@ p{
 .size_list, .categories_list {
   padding-left: 0;
   margin: 0;
-
 }
 
 .categories_list{
@@ -436,14 +409,12 @@ p{
 }
 
 .prod_item{
-  width: 32%;
-  margin-right: 1.97%;
+  width: 30%;
+  margin-right: 1.3%;
   margin-bottom: 3.9%;
+  margin-left: 1.9%;
 }
 
-.last_item{
-  margin-right: 0;
-}
 
 .prod_img{
   width: 100%;
@@ -452,7 +423,6 @@ p{
 .prod_text{
   margin-top: 7px;
 }
-
 a{
   text-decoration: none;
 }
@@ -483,6 +453,20 @@ a{
 .p8 .is-active{
   background-color: #fff;
   color: #000;
+}
+
+@media (max-width: 912px) {
+  .desktop-only-header {
+    display: none;
+  }
+
+  .mobile-only-header {
+    display: initial;
+  }
+
+  .desktop-only-sort {
+    display: none;
+  }
 }
 
 .mobile-only-sort{
@@ -524,7 +508,7 @@ a{
   position: relative;
   margin: 0;
   padding: 0;
-  background-color: #ff;
+  background-color: #fff;
   display: table;
   width: 100%;
 }
@@ -620,17 +604,7 @@ a{
   background-color: #fff;
   padding: 25px 40px;
   font-family: Geometria;
-}
-
-.cont_button{
-  border: 2px solid #000;
-  color: #000;
-  text-align: center;
-  text-decoration: none;
-  font-size: 20px;
-  background-color: #fff;
-  padding: 20px 30px;
-  font-family: Geometria;
+  margin-bottom: 40px;
 }
 
 .bucket_divs{
@@ -685,7 +659,7 @@ a{
 }
 
 .bucket_item_name{
-  margin-top: 0%;
+  margin-top: 2%;
 
 }
 
@@ -741,6 +715,8 @@ a{
   margin-left: 70px;
   margin-top: 60px;
   margin-bottom: 11.7%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .auth_big_text{
@@ -753,6 +729,20 @@ a{
   margin-right: 70px;
   margin-top: 60px;
   margin-bottom: 11.7%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.inputs{
+  display: table;
+  margin-right: auto;
+  margin-left: 17%;
+}
+
+.register_auth_inputs{
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .auth_button{
@@ -785,26 +775,204 @@ a{
   transform: translate(-50%, 0);
 }
 
+.register_text{
+  margin-top: 30px;
+  text-align:center;
+}
+
+.register_link{
+  text-decoration: underline;
+}
+
 .email_input{
   width: 390px;
   height: 45px;
   border: 2px solid #000;
+  font: 400 20px Geometria;
 }
 
 .email_input_text{
+  margin-top: 23px;
+}
+
+.name_input{
+  width: 390px;
+  height: 45px;
+  border: 2px solid #000;
+  font: 400 20px Geometria;
+}
+
+.name_input_text{
   margin-top: 71px;
-  margin-left: 50px;
+
 }
 
 .password_input{
   width: 390px;
   height: 45px;
   border: 2px solid #000;
+  font: 400 20px Geometria;
 }
 
 .password_input_text{
   margin-top: 23px;
-  margin-left: 40px;
+
+}
+
+.second_password_input_text{
+  margin-top: 23px;
+
+}
+
+.adress_divs{
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.adress_left{
+  width: 56.25%;
+  margin-left: 50px;
+  margin-top: 45px;
+  margin-bottom: 11.7%;
+}
+
+.adress_big_text{
+  margin-top: 8px;
+}
+
+.adress_right{
+  margin-top: 8.9%;
+  width: 27.2%;
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
+
+.adress_order_price{
+  padding-top: 30px;
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.adress_order_button{
+  margin-top: 70px;
+  border: 2px solid #000;
+  color: #000;
+  text-align: right;
+  text-decoration: none;
+  font-size: 24px;
+  background-color: #fff;
+  padding: 15px 50px;
+  font-family: Geometria;
+  float: right;
+}
+
+.errorlist{
+color: #f00
+}
+
+.adress_input{
+  width: 58%;
+  height: 45px;
+  border: 2px solid #000;
+  float: right;
+}
+
+.adress_input_text{
+  margin-top: 50px;
+  margin-left: 80px;
+}
+
+.blanc_space{
+  margin-top: 40px;
+}
+
+/* Личный кабинет */
+
+.personal_divs{
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.personal_left{
+  width: 37.6%;
+  margin-left: 39px;
+  padding-top: 28px;
+  margin-bottom: 3%;
+}
+
+.personal_item{
+  margin-top: 51px;
+  margin-left: 42px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.personal_name{
+  margin-top: 24px;
+}
+
+.personal_email{
+  margin-top: 14px;
+}
+
+.personal_change_data{
+  margin-top: 23px;
+}
+
+.personal_change_password{
+  margin-top: 9px;
+}
+
+.personal_right{
+  margin-top: 123px;
+  width: 33%;
+  margin-right: 16%;
+  margin-bottom: 50px;
+  margin-left: 45px;
+  height: 200px;
+
+}
+
+.personal_order_item_date{
+  margin-top: 5px;
+}
+
+.personal_order_item{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.personal_order_cost{
+  margin-right: 29px;
+  margin-top: 9px;
+}
+
+.personal_hr{
+  border: none;
+    background-color: #000;
+    color: #000;
+    height: 1px;
+    width: 100%;
+}
+
+.personal_delivery{
+  width: 37.6%;
+  margin-left: 39px;
+  margin-bottom: 11.7%;
+}
+
+.personal_exit{
+  margin-top: 50px;
 }
 
 @media(max-width: 1023px) {
@@ -816,7 +984,7 @@ a{
     padding-right: 0;
     width: 50%;
   }
-
+}
 @media (max-width: 900px) {
   .medium_wrapper{
     padding: 0px 20px;
@@ -848,16 +1016,89 @@ a{
     width: 100%
   }
   .prod_item{
-    width: 49%;
-    margin-right: 1.97%;
-    margin-bottom: 3.9%;
+    width: 39%;
+    margin-right: 1.3%;
+    margin-bottom: 3%;
   }
   .second_item{
     margin-right: 0;
   }
-}
+  .adress_divs{
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .adress_left{
+    width: 100%;
+    margin-top: 45px;
+    margin-bottom: 11.7%;
+    margin-left: 0;
+  }
+
+  .adress_big_text{
+    margin-top: 8px;
+  }
+
+  .adress_right{
+    display: none;
+  }
+  .adress_input{
+    width: 48%;
+    height: 35px;
+    border: 2px solid #000;
+
+  }
+  .adress_input_text{
+    margin-top: 50px;
+    margin-left: 0;
+  }
+  .adress_order_button{
+    margin-top: 70px;
+    border: 2px solid #000;
+    color: #000;
+    text-align: right;
+    text-decoration: none;
+    font-size: 24px;
+    background-color: #fff;
+    padding: 15px 20px;
+    font-family: Geometria;
+    float: right;
+  }
+
+  .personal_left{
+    width: 100%;
+    margin-left: 39px;
+    padding-top: 28px;
+    margin-bottom: 3%;
+  }
+
+  .personal_item{
+    margin-top: 51px;
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .personal_right{
+    margin-top: 123px;
+    width: 100%;
+    margin-right: 16%;
+    margin-bottom: 50px;
+    margin-left: 45px;
+    height: 200px;
+  }
+
+  .personal_delivery{
+    width: 100%;
+    margin-left: 20px;
+    margin-bottom: 11.7%;
+  }
+
 
 }
+
 
 @media (min-width: 901px) {
   .mobile-only-sort {

@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^main/', include(('shop.urls', 'shop'), namespace='shop')),
     url(r'^account/', include(('orders.urls', 'orders'), namespace='orders')),
     #url('accounts/', include(('allauth.urls', 'social'), namespace='social')),
-    # url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
+    # url(r'^oauth/', include('social.apps.django_app.default.urls', namespace='social')),  # <--
     url('social-auth/', include('social.apps.django_app.urls', namespace='social')),
 
 ]

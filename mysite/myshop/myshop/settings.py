@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 from django.urls import reverse_lazy
 from social_core.backends.google import GoogleOAuth
+# import social.apps.django_app.default.middleware.SocialAuthExceptionMiddleware as ss
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +28,7 @@ SECRET_KEY = '9rwjw(h9q&jh$kfrz73qszl%tz68q-444#p6!^2p^ld4npn-1*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ 'mysite.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_django',
     'shop',
     'cart',
     'orders',
@@ -50,12 +50,11 @@ SITE_ID = 4
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.common.CommonMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'myshop.urls'
@@ -74,8 +73,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social_django.context_processors.backends',  # <--
-                'social_django.context_processors.login_redirect', # <--
             ],
         },
     },
@@ -90,12 +87,12 @@ WSGI_APPLICATION = 'myshop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'knics',
-        "USER": 'root',
-        "PASSWORD": 'chucha12',
-        "HOST": 'localhost',
-        'PORT': '3306'
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('POSTGRES_DB'),
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('POSTGRES_HOST'),
+        'PORT': '5432'
     }
 }
 
@@ -164,18 +161,18 @@ LOGOUT_URL = reverse_lazy('orders:logout')
 #     'allauth.account.auth_backends.AuthenticationBackend'
 # )
 
-AUTHENTICATION_BACKENDS = (
-    'social_core.backends.github.GithubOAuth2',
-    'social_core.backends.twitter.TwitterOAuth',
-    'social_core.backends.facebook.FacebookOAuth2',
-    'social.backends.twitter.TwitterOAuth',
-    'django.contrib.auth.backends.ModelBackend',
-)
+# AUTHENTICATION_BACKENDS = (
+#     'social_core.backends.github.GithubOAuth2',
+#     'social_core.backends.twitter.TwitterOAuth',
+#     'social_core.backends.facebook.FacebookOAuth2',
+#     'django.contrib.auth.backends.ModelBackend',
+# )
 
-SOCIAL_AUTH_FACEBOOK_KEY = '185970756596283' # Facebook App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = 'e44a227c24eefa24b2359c73abf1accd' # Facebook App Secret
+# SOCIAL_AUTH_FACEBOOK_KEY = '185970756596283' # Facebook App ID
+# SOCIAL_AUTH_FACEBOOK_SECRET = 'e44a227c24eefa24b2359c73abf1accd' # Facebook App Secret
 
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '576268876793-8vn50reimfmieegtihqje7djt4fr8rbk.apps.googleusercontent.com' # Google Consumer Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'qwEux4wYFyllvePxlLEqS41n' # Google Consumer Secret
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '576268876793-8vn50reimfmieegtihqje7djt4fr8rbk.apps.googleusercontent.com' # Google Consumer Key
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'qwEux4wYFyllvePxlLEqS41n' # Google Consumer Secret
 
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
