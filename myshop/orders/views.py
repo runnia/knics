@@ -83,7 +83,7 @@ def order_create(request):
             user.first_name = cd['first_name']
             adress = cd['city'] +' ' + cd['street'] +' ' + cd['house']
             if cd['flat']:
-                adrees += ' кв ' + cd['flat']
+                adrees = adress + ' кв ' + cd['flat']
 
             Order.objects.create(first_name=cd['first_name'],
                                          last_name = cd['last_name'],

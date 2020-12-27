@@ -1,5 +1,7 @@
 version: "3.2"
 
+
+
 services:
   db:
     image: postgres:9.3
@@ -13,9 +15,11 @@ services:
     ports:
       - "5432:5432"
 
-  server:
+
+
+  server: 
+    image: falidana/myserver
     restart: always
-    build: .
     environment:
       - POSTGRES_USER=eo
       - POSTGRES_DB=kn
@@ -25,9 +29,11 @@ services:
       - db
     links:
       - db
+    volumes: 
+      - '.:/myshop/'
     ports:
       - "2225:22"
-      - "8005:8000"
+      - "80:8000"
 
 volumes:
   postgres_data:
